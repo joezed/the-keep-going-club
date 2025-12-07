@@ -165,10 +165,17 @@ footer {
 }
 
 .supporter-track {
-  display: inline-flex;
-  gap: 20px;
+  display: flex;
   animation: supporter-scroll 20s linear infinite;
   align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+.supporter-slide {
+  display: flex;
+  gap: 20px;
+  flex-shrink: 0;
 }
 
 .supporter-track img {
