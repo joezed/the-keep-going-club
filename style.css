@@ -1,0 +1,439 @@
+/* Reset */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 700;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+}
+
+/* Top Bar */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #0C4F5E;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  z-index: 1000;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+}
+
+header .nav a {
+	text-decoration: none;
+	color: #FFFFFF;
+	padding: 0 5px 0 5px;
+}
+
+.site-title {
+  font-size: 1.2rem;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo img {
+  height: 80px;
+  position: relative;
+  top: 20px;
+}
+
+
+
+/* Content */
+main {
+  margin-top: 40px; /* space for fixed header */
+}
+
+section {
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Cycle Header Colors */
+section:nth-of-type(1) .section-header {
+  background-color: #EDD077;
+  color: #333; /* dark text for contrast */
+}
+
+section:nth-of-type(2) .section-header {
+  background-color: #DB736C;
+  color: white;
+}
+
+section:nth-of-type(3) .section-header {
+  background-color: #37989F;
+  color: white;
+}
+
+/* Repeat pattern every 3 sections */
+section:nth-of-type(4) .section-header {
+  background-color: #EDD077;
+  color: #333;
+}
+
+section:nth-of-type(5) .section-header {
+  background-color: #DB736C;
+  color: white;
+}
+
+section:nth-of-type(6) .section-header {
+  background-color: #37989F;
+  color: white;
+}
+
+
+section:nth-child(even) .section-content {
+  background-color: #f7f9f9; /* alternate shade for visual variety */
+}
+
+/* Footer */
+footer {
+  background: #0C4F5E;
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  padding: 15px;
+}
+
+/* ========================================================= */
+/* One size section */
+/* ========================================================= */
+
+.section-content-one {
+  flex: 1;
+  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+/* ========================================================= */
+/* Supporter section */
+/* ========================================================= */
+
+.section-content-support {
+  flex: 1;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  background: #f7f9f9;
+}
+
+/* Make only the images act like a row */
+.section-content-support img {
+  max-width: 200px;
+  height: auto;
+  margin: 10px;
+  display: inline-block;
+}
+
+
+
+
+/* ========================================================= */
+/* Custom Section Header and Content Styles (Vertical Split) */
+/* ========================================================= */
+
+.section-header,
+.section-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  flex-direction: column;
+}
+
+/* Header Styling */
+.section-header {
+  background-color: #0C4F5E;
+  color: white;
+  display: flex;
+  flex-direction: column; /* stack elements vertically */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.section-header img {
+	max-width: 250px;
+}
+
+.section-header img#maxi {
+  max-height: 400px !important;
+  max-width: 400px !important;
+}
+
+.section-header h1,
+.section-header h2 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Content Styling */
+.section-content {
+  background-color: #FFFFFF;
+  color: #333;
+}
+
+.section-content p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ========================= */
+/* Team section (centered)   */
+/* ========================= */
+
+#team .section-content {
+  display: flex;
+  align-items: center;        /* vertically center */
+  justify-content: center;    /* horizontally center */
+  text-align: center;
+  background: #FFFFFF;        /* matches your style */
+  padding: 40px;
+}
+
+/* Grid stays centered inside */
+.team-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  padding: 0;
+  margin: 0 auto;             /* centers the grid block itself */
+  max-width: 1100px;
+  justify-content: center;    /* centers columns if fewer than max */
+}
+
+.team-card {
+  background: #FFFFFF;
+  min-width:300px;
+  border-radius: 14px;
+  padding: 18px 16px 20px;
+  text-align: center;
+  box-shadow: 0 1px 0 rgba(12, 79, 94, 0.05), 0 4px 14px rgba(12, 79, 94, 0.06);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.team-card img {
+  display: block;
+  margin: 0 auto 12px;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #0C4F5E;
+}
+
+.team-avatar-mollie {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-image: url('assets/team/mollie.png'); /* your image */
+  background-size: cover;          /* fill the circle */
+  background-position: 50% 65%;    /* move the visible area DOWN */
+  margin: 0 auto 12px;
+}
+
+.team-avatar-you {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-image: url('assets/team/you.png'); /* your image */
+  background-size: cover;          /* fill the circle */
+  background-position: 50% 65%;    /* move the visible area DOWN */
+  margin: 0 auto 12px;
+}
+
+.team-avatar-joe {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: url('assets/team/joe.png') no-repeat -50% -78% / 100% auto;
+  /*         ^image                         ^pos              ^size */
+  margin: 0 auto 12px;
+}
+
+.team-avatar-alice {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: url('assets/team/alice.png') no-repeat -50% -78% / 100% auto;
+  /*         ^image                         ^pos              ^size */
+  margin: 0 auto 12px;
+}
+
+.team-avatar-bradley {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: url('assets/team/bradley.png') no-repeat -50% -78% / 100% auto;
+  /*         ^image                         ^pos              ^size */
+  margin: 0 auto 12px;
+}
+
+.team-avatar-rowan {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: url('assets/team/rowan.png') no-repeat -50% -78% / 100% auto;
+  /*         ^image                         ^pos              ^size */
+  margin: 0 auto 12px;
+}
+
+.team-name {
+  font-size: 1.05rem;
+}
+
+.team-role {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 4px;
+}
+
+/* Responsive grid */
+@media (max-width: 1024px) {
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .team-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+  }
+
+  .section-header,
+  .section-content {
+    flex: none;
+    width: 100%;
+    min-height: 200px;
+  }
+
+  .section-header h1,
+  .section-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-title {
+    font-size: 1rem;
+  }
+  
+	.section-header img {
+	max-width: 100px;
+}
+
+  section p {
+    max-width: 100%;
+  }
+}
+
+/* --- Minimal mobile fixes --- */
+
+/* Keep text sizes consistent on iOS (About page) */
+html { -webkit-text-size-adjust: 100%; }
+
+/* Media should never overflow */
+img, video { max-width: 100%; height: auto; }
+
+/* ========== 768px and down ========== */
+@media (max-width: 768px) {
+  /* Stack sections vertically and reduce padding a bit */
+  section { flex-direction: column; }
+  .section-header, .section-content, .section-content-one, .section-content-support { padding: 24px; }
+
+  /* Headings scale simply */
+  .section-header h1, .section-header h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+
+  /* Header/logo: stop overlap and center naturally */
+  header { padding: 8px 12px; }
+  .logo { position: static; transform: none; margin: 0 auto; }
+  .logo img { height: 56px; top: 0; }
+  main { margin-top: 72px; } /* enough space under fixed header */
+
+  /* Team grid: 2 columns on tablets/phones */
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Team cards/avatars */
+  .team-card { min-width: 0; padding: 16px; }     /* prevent sideways scroll */
+  .team-card img { width: 90px; height: 90px; object-fit: cover; }
+  .team-avatar-mollie, .team-avatar-joe, .team-avatar-you, .team-avatar-rowan, .team-avatar-alice, .team-avatar-bradley {
+    width: 120px; height: 120px;
+    background-size: cover; background-position: 50% 50%;
+    margin: 0 auto 10px;
+  }
+}
+
+/* ========== 520px and down ========== */
+@media (max-width: 520px) {
+  /* Team grid: single column on small phones */
+  .team-grid { grid-template-columns: 1fr; }
+
+  /* Slightly tighter spacing */
+  .section-header, .section-content, .section-content-one, .section-content-support { padding: 18px; }
+  .section-header h1, .section-header h2 { font-size: clamp(1.35rem, 6vw, 1.8rem); }
+
+  .team-card img,
+  .team-avatar-mollie, .team-avatar-joe, .team-avatar-you, .team-avatar-rowan, .team-avatar-alice, .team-avatar-bradley { width: 80px; height: 80px; }
+}
+
+
+/* Hide scrollbars */
+html, body {
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE and Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Opera */
+}
