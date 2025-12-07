@@ -157,6 +157,40 @@ footer {
   display: inline-block;
 }
 
+.supporter-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0;
+}
+
+.supporter-track {
+  display: flex;
+  animation: supporter-scroll 20s linear infinite;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+.supporter-slide {
+  display: flex;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.supporter-track img {
+  flex: 0 0 auto;
+}
+
+@keyframes supporter-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 
 
 
