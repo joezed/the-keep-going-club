@@ -147,6 +147,7 @@ footer {
   text-align: center;
   padding: 40px;
   background: #f7f9f9;
+  min-width: 0;
 }
 
 /* Make only the images act like a row */
