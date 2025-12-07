@@ -147,14 +147,51 @@ footer {
   text-align: center;
   padding: 40px;
   background: #f7f9f9;
+  min-width: 0;
 }
 
 /* Make only the images act like a row */
-.section-content-support img {
-  max-width: 200px;
-  height: auto;
+.supporter-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0;
+}
+
+.supporter-track {
+  display: flex;
+  animation: supporter-scroll var(--supporter-duration, 20s) linear infinite;
+  animation-play-state: paused;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+}
+
+.supporter-track.is-ready {
+  animation-play-state: running;
+}
+
+.supporter-slide {
+  display: flex;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.supporter-slide img {
+  flex: 0 0 auto;
+  height: clamp(90px, 16vw, 140px);
+  width: auto;
+  object-fit: contain;
   margin: 10px;
-  display: inline-block;
+}
+
+@keyframes supporter-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--supporter-loop-distance, 50%)));
+  }
 }
 
 
