@@ -1,0 +1,40 @@
+{
+  "volunteers": [
+    {
+      "name": "Mollie Haynes",
+      "role": "Founder",
+      "image": "assets/team/mollie.png",
+      "alt": "Mollie Haynes"
+    },
+    {
+      "name": "Alice Palmer",
+      "role": "Treasurer",
+      "image": "assets/team/alice.png",
+      "alt": "Alice Palmer"
+    },
+    {
+      "name": "Rowan Horton",
+      "role": "Social Media",
+      "image": "assets/team/rowan.png",
+      "alt": "Rowan Horton"
+    },
+	{
+      "name": "Joe Zalewski",
+      "role": "Safeguarding & Website",
+      "image": "assets/team/joe.png",
+      "alt": "Joe Zalewski"
+    },
+    {
+      "name": "Bradley Hawthorne",
+      "role": "Partnerships and Events",
+      "image": "assets/team/bradley.png",
+      "alt": "Bradley Hawthorne"
+    },
+    {
+      "name": "You?",
+      "role": "We'd love to have you!",
+      "image": "assets/team/you.png",
+      "alt": "You?"
+    }
+  ]
+}

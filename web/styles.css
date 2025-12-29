@@ -1,0 +1,827 @@
+/* =============================================================================
+  styles.css
+  
+  Contents:
+  A) Foundations
+    A1) Design Tokens (CSS Variables)
+    A2) Reset & Base Elements
+    A3) Typography & Utilities
+
+  B) Layout
+    B1) Layout Primitives (container, scroll offsets)
+    B2) Main & Section Shells
+
+  C) Navigation & Header
+    C1) Topbar / Brand
+    C2) Navigation Links & Buttons (incl. hamburger)
+    C3) Navigation Icons (Instagram SVG)
+    C4) Drawer (Mobile Nav)
+
+  D) Hero
+    D1) Hero Layout, Background Layers, Text & Actions
+
+  E) Page/Feature Sections
+    E1) Volunteers
+    E2) Pages (generic page shell, About layout helpers)
+    E3) Support Page (Infinite Logo Carousel)
+    E4) Support CTAs
+
+  F) Accessibility
+    F1) Reduced Motion
+
+  G) Responsive
+    G1) Breakpoints
+
+  Change Log:
+  - 2025-12-22: Reorganised file, added header/contents/changelog, consolidated
+                duplicate media queries. No intentional visual changes.
+
+============================================================================= */
+
+/* =============================================================================
+  A1) Foundations — Design Tokens (CSS Variables)
+============================================================================= */
+
+:root{
+  /* Palette */
+  --teal: #319FA5;
+  --sand: #EDD077;
+  --deep: #0C4F5E;
+  --cream: #FEFEFD;
+  --orange: #DB723C;
+
+  /* Neutrals derived from palette */
+  --ink: #083741;
+  --muted: rgba(12,79,94,.72);
+  --stroke: rgba(12,79,94,.18);
+  --shadow: 0 18px 60px rgba(12,79,94,.22);
+
+  --radius: 18px;
+  --max: 1120px;
+}
+
+
+
+/* =============================================================================
+  A2) Foundations — Reset & Base Elements
+============================================================================= */
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background: var(--cream);
+  color: var(--deep);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+
+
+/* =============================================================================
+  A3) Foundations — Typography & Utilities
+============================================================================= */
+
+h1, h2, h3, .brand{
+  font-family: "Baloo 2", cursive;
+  letter-spacing: .2px;
+}
+
+a{ color: inherit; }
+.muted{ color: var(--muted); }
+code{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+
+/* =============================================================================
+  C1) Navigation & Header — Topbar / Brand
+============================================================================= */
+
+.topbar{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 76px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  background: rgba(254,254,253,.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--stroke);
+}
+
+.topbar__inner{
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--deep);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.brand__logo{
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex: 0 0 auto;
+  filter: drop-shadow(0 6px 14px rgba(49,159,165,.22));
+}
+
+
+
+/* =============================================================================
+  C2) Navigation & Header — Navigation Links & Buttons (incl. hamburger)
+============================================================================= */
+
+.nav{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav a{
+  text-decoration: none;
+  color: rgba(12,79,94,.86);
+  font-weight: 800;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  transition: background .2s ease, transform .12s ease;
+}
+.nav a:hover{
+  background: rgba(49,159,165,.10);
+  transform: translateY(-1px);
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(12,79,94,.22);
+  background: rgba(254,254,253,.8);
+  color: var(--deep);
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform .12s ease, background .2s ease, border-color .2s ease;
+  text-decoration: none;
+}
+.btn:hover{
+  background: rgba(237,208,119,.20);
+  border-color: rgba(219,114,60,.35);
+  transform: translateY(-1px);
+}
+.btn:active{ transform: translateY(0); }
+
+.btn-primary{
+  border-color: rgba(219,114,60,.5);
+  background: linear-gradient(135deg, rgba(237,208,119,.96), rgba(219,114,60,.96));
+  color: var(--ink);
+}
+.btn-primary:hover{ filter: brightness(1.03); }
+
+/* Hamburger */
+.hamburger{
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  border: 1px solid rgba(12,79,94,.22);
+  background: rgba(254,254,253,.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.hamburger span{
+  width: 18px; height: 2px;
+  background: var(--deep);
+  border-radius: 999px;
+  position: relative;
+  display: block;
+}
+.hamburger span::before,
+.hamburger span::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 18px; height: 2px;
+  background: var(--deep);
+  border-radius: 999px;
+  top: 0;
+}
+.hamburger span::before{ top: -6px; }
+.hamburger span::after{ top: 6px; }
+
+
+/* =============================================================================
+  C4) Navigation & Header — Drawer (Mobile Nav)
+============================================================================= */
+
+.drawer{
+  position: fixed;
+  top: 76px;
+  right: 16px;
+  width: min(360px, calc(100% - 32px));
+  background: rgba(254,254,253,.92);
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 12px;
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  z-index: 999;
+}
+.drawer.open{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.drawer a{
+  display: block;
+  padding: 12px 12px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  color: var(--deep);
+}
+.drawer a:hover{ background: rgba(49,159,165,.12); }
+.drawer__cta{ margin-top: 8px; width: 100%; }
+
+/* ===== instagram svg ===== */
+.nav__icon .icon{
+  fill: currentColor;
+}
+
+.nav__icon {
+  display: flex;
+  align-items: center;
+}
+
+.nav__icon svg {
+  width: 30px!important;
+  fill: currentColor;
+}
+
+
+/* =============================================================================
+  D1) Hero — Layout, Background Layers, Text & Actions
+============================================================================= */
+
+.hero{
+  min-height: 100vh;
+  padding-top: 76px; /* fixed topbar offset */
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  align-items: stretch;
+}
+
+.hero__bg{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: scale(1.02);
+}
+
+/* Dark overlay (keeps text readable) */
+.hero__bg::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: linear-gradient(90deg,
+    rgba(12,79,94,.82) 0%,
+    rgba(12,79,94,.66) 40%,
+    rgba(12,79,94,.35) 72%,
+    rgba(12,79,94,.15) 100%
+  );
+}
+
+/* Image layers inserted by JS */
+.hero__bg-layer{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2.5s ease-in-out;
+  will-change: opacity;
+}
+
+/* subtle zoom drift */
+.hero__bg-layer{
+  transform: scale(1.03);
+}
+
+/* Visible layer */
+.hero__bg-layer.is-visible{
+  opacity: 1;
+}
+
+/* Accessibility: no animation if user prefers reduced motion */
+
+
+
+.hero__content{
+  position: relative;
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto;
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* spacer + right text */
+  align-items: center;
+  gap: 28px;
+  padding: 46px 0;
+}
+
+.hero__spacer{ display: block; }
+
+.hero__kicker{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(254,254,253,.14);
+  border: 1px solid rgba(254,254,253,.18);
+  color: rgba(254,254,253,.92);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .35px;
+  width: fit-content;
+}
+
+.hero h1{
+  margin: 14px 0 10px;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 0.95;
+  color: var(--cream);
+  text-shadow: 0 12px 40px rgba(0,0,0,.35);
+}
+
+.lead{
+  margin: 0 0 18px;
+  color: rgba(254,254,253,.88);
+  font-size: 16px;
+  max-width: 55ch;
+}
+
+.hero__actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.hero .btn{
+  background: rgba(254,254,253,.14);
+  border-color: rgba(254,254,253,.22);
+  color: var(--cream);
+}
+.hero .btn:hover{
+  background: rgba(237,208,119,.22);
+  border-color: rgba(237,208,119,.35);
+  color: var(--ink);
+}
+.hero .btn-primary{
+  background: linear-gradient(135deg, rgba(237,208,119,.96), rgba(219,114,60,.96));
+  border-color: rgba(237,208,119,.55);
+  color: var(--ink);
+}
+
+
+/* =============================================================================
+  B2) Layout — Main & Section Shells
+============================================================================= */
+
+main{
+  padding: 72px 0 90px;
+  background:
+    radial-gradient(1000px 600px at 20% 10%, rgba(49,159,165,.14), transparent 55%),
+    radial-gradient(900px 520px at 80% 5%, rgba(219,114,60,.12), transparent 55%),
+    linear-gradient(180deg, rgba(254,254,253,1) 0%, rgba(254,254,253,1) 100%);
+}
+
+/* =============================================================================
+  B1) Layout — Layout Primitives
+============================================================================= */
+
+.container{
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* For anchor-jumps with fixed header */
+section[id]{ scroll-margin-top: 96px; }
+
+
+
+.section{
+  padding: 28px;
+  border-radius: var(--radius);
+  background: rgba(254,254,253,.92);
+  border: 1px solid var(--stroke);
+  box-shadow: 0 10px 40px rgba(12,79,94,.08);
+  margin-bottom: 18px;
+}
+
+.section__head{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.section h2{
+  margin: 0 0 10px;
+  font-size: 30px;
+  color: var(--deep);
+}
+
+.section p{
+  margin: 0 0 14px;
+  color: rgba(12,79,94,.86);
+  white-space: pre-wrap;
+}
+.section p:last-child{ margin-bottom: 0; }
+
+.section--flat{
+  padding: 28px 28px 24px;
+}
+
+.callout{
+  border-left: none;
+  padding-left: 0;
+  margin-top: 12px;
+  font-weight: 700;
+  color: var(--deep);
+}
+
+
+.link-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  border: 1px solid rgba(49,159,165,.25);
+  background: rgba(49,159,165,.10);
+  color: var(--deep);
+  transition: transform .12s ease, background .2s ease;
+}
+.link-pill:hover{
+  background: rgba(237,208,119,.25);
+  transform: translateY(-1px);
+}
+
+
+/* =============================================================================
+  E1) Page/Feature Sections — Volunteers
+============================================================================= */
+
+.vol-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.vol-card{
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 14px;
+  align-items: center;
+
+  padding: 16px 16px;
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  background: rgba(254,254,253,.96);
+  box-shadow: 0 10px 26px rgba(12,79,94,.06);
+
+  position: relative;
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+/* little accent strip */
+.vol-card::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--teal), var(--orange));
+  opacity: .9;
+}
+
+.vol-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(12,79,94,.10);
+  border-color: rgba(49,159,165,.28);
+}
+
+.vol-photo{
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: rgba(49,159,165,.10);
+  border: 1px solid rgba(12,79,94,.12);
+  overflow: hidden;
+}
+
+.vol-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* text */
+.vol-body{
+  padding: 0; /* no internal padding */
+}
+
+.vol-name{
+  margin: 0;
+  font-family: "Baloo 2", cursive;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--deep);
+  line-height: 1.1;
+}
+
+.vol-role{
+  margin: 6px 0 0;
+  color: rgba(12,79,94,.75);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+
+/* =============================================================================
+  E2) Page/Feature Sections — Pages (generic shell & shared layouts)
+============================================================================= */
+
+.page{
+  padding: 110px 0 80px; /* fixed topbar offset */
+  background:
+    radial-gradient(1000px 600px at 20% 10%, rgba(49,159,165,.14), transparent 55%),
+    radial-gradient(900px 520px at 80% 5%, rgba(219,114,60,.12), transparent 55%);
+}
+
+.page-title{
+  margin: 0 0 16px;
+  font-size: clamp(40px, 4.5vw, 60px);
+  line-height: .95;
+}
+
+.subtitle{
+  margin: 0 0 26px;
+  color: rgba(12,79,94,.78);
+  max-width: 80ch;
+}
+
+.value-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.value{
+  border: 1px solid var(--stroke);
+  border-radius: 16px;
+  padding: 16px;
+  background: rgba(254,254,253,.96);
+}
+
+.value h3{
+  margin: 0 0 8px;
+  font-size: 18px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.value p{ margin: 0; color: rgba(12,79,94,.82); }
+
+/* Maxi split */
+.split{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.split__image{
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  min-height: 360px;
+  background:
+    linear-gradient(180deg, rgba(12,79,94,.10), rgba(12,79,94,.28)),
+    url("/assets/maxi.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.split__text{
+  border-radius: 18px;
+  border: 1px solid var(--stroke);
+  padding: 18px;
+  background: rgba(254,254,253,.96);
+}
+
+.split__text h3{
+  margin: 0 0 10px;
+  font-size: 24px;
+  color: var(--deep);
+}
+
+.split__text p{
+  margin: 0;
+  color: rgba(12,79,94,.86);
+  white-space: pre-wrap;
+}
+
+
+/* =============================================================================
+  E5) Page/Feature Sections — Footer
+============================================================================= */
+
+footer{
+  padding: 26px 0 50px;
+  color: rgba(12,79,94,.62);
+  font-size: 13px;
+}
+
+
+/* =============================================================================
+  E3) Page/Feature Sections — Support Page (Infinite Logo Carousel)
+============================================================================= */
+
+.logo-carousel{
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+  border-radius: 18px;
+  background: rgba(254,254,253,.96);
+  box-shadow: 0 10px 30px rgba(12,79,94,.06);
+  padding: 14px 0;
+}
+
+.logo-track{
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: max-content;
+  padding: 10px 18px;
+
+  animation: scroll-logos 65s linear infinite;
+  will-change: transform;
+}
+
+.logo-carousel:hover .logo-track{
+  animation-play-state: paused;
+}
+
+.logo{
+  height: 56px;
+  width: auto;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid rgba(12,79,94,.12);
+  background: var(--cream);
+  padding: 8px 12px;
+}
+
+@keyframes scroll-logos{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* subtle edge fade */
+.logo-carousel::before,
+.logo-carousel::after{
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 70px;
+  pointer-events: none;
+  z-index: 2;
+}
+.logo-carousel::before{
+  left: 0;
+  background: linear-gradient(90deg, rgba(254,254,253,1), rgba(254,254,253,0));
+}
+.logo-carousel::after{
+  right: 0;
+  background: linear-gradient(270deg, rgba(254,254,253,1), rgba(254,254,253,0));
+}
+
+
+/* =============================================================================
+  E4) Page/Feature Sections — Support CTAs
+============================================================================= */
+
+.cta-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 18px;
+  align-items: stretch;
+}
+
+.cta{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 14px;
+
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.cta .link-pill{
+  width: 100%;
+  justify-content: space-between;
+}
+
+
+
+
+.cta h3{
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.cta p{
+  margin: 0 0 12px;
+  color: rgba(12,79,94,.86);
+}
+
+
+
+
+/* =============================================================================
+  F1) Accessibility — Reduced Motion
+============================================================================= */
+@media (prefers-reduced-motion: reduce){
+  .hero__bg-layer{ transition: none !important; }
+  .logo-track{ animation: none !important; }
+}
+
+/* =============================================================================
+  G1) Responsive — Breakpoints
+============================================================================= */
+@media (min-width: 981px){
+  /* Center the last row when it has fewer items */
+  .vol-grid{
+    grid-auto-flow: row;
+  }
+}
+
+@media (max-width: 980px){
+  .vol-grid{ grid-template-columns: repeat(2, 1fr); }
+  .cta-grid{ grid-template-columns: 1fr; }
+  .hero__content{
+      grid-template-columns: 1fr;
+      padding: 34px 0 42px;
+    }
+    .hero__spacer{ display: none; }
+    .nav{ display: none; }
+    .hamburger{ display: inline-flex; }
+    .vol-grid{ grid-template-columns: repeat(2, 1fr); }
+    .value-list{ grid-template-columns: 1fr; }
+    .split{ grid-template-columns: 1fr; }
+    .split__image{ min-height: 320px; }
+}
+
+@media (max-width: 560px){
+  .vol-grid{ grid-template-columns: 1fr; }
+    .vol-card{ grid-template-columns: 56px 1fr; }
+    .vol-photo{ width: 56px; height: 56px; border-radius: 14px; }
+    .section{ padding: 20px; }
+}

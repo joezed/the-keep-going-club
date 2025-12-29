@@ -1,109 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>The Keep Going Club</title>
-		<link rel="stylesheet" href="style.css"/>
-		<link rel="icon" type="image/x-icon" href="assets/cloud.png">
-		</head>
-		<body>
-			<header>
-				<div class="site-title">The Keep Going Club</div>
-				<div class="logo">
-					<a href='index.html'><img src="assets/cloud.png" alt="Logo"></a>
-					</div>
-				<div class="nav">
-					<a href ='about.html'>About</a>
-					<a href ='support.html'>Support</a>
-				</div>
-				</header>
-				
-				<main>	
-				
-					<!-- About us -->
-					<section>
-						<div class='section-content-one'>
-							<h2>How Businesses Can Support The Keep Going Club</h2>
-							<br>
-							<p>We’re a grassroots mental-health charity in Nottingham, creating events and creative safe spaces to help people breathe, connect, and, well, keep going.
-							<br>We see people, not diagnoses. Every story matters, every experience is valid, and every person deserves compassion.
-							</p>
-							<br>
-							
-							<p>Your business can support us by:<br>
-							- Sponsoring an event (help us afford tea, art supplies, and the occasional emergency biscuit run)<br>
-							- Donating goods or services<br>
-							- Hosting a fundraiser<br>
-							- Letting us borrow your space for workshops or wellbeing sessions<br>
-							</p>
-							<br>
-							
-							<p>What you get in return:<br>
-							- Shoutouts on our socials<br>
-							- Your logo on our site<br>
-							- Public appreciation (the wholesome kind)<br>
-							- A warm fuzzy feeling inside<br>
-							</p>
-						</div>
-					</section>			
-					
-                                        <section>
-                                                <div class='section-content-support'>
-                                                        <h2>Who are currently supporting us?</h2>
-                                                        <br>
-                                                        <p>This great selection of businesses are currently supporting us - you could be here too!
-                                                        </p>
-                                <div class="supporter-marquee" aria-label="Supporting businesses carousel">
-                                        <div class="supporter-track">
-                                                <div class="supporter-slide">
-                                                        <img src='assets/supporters/1.jpeg' alt="Supporter business 1">
-                                                        <img src='assets/supporters/2.jpeg' alt="Supporter business 2">
-                                                        <img src='assets/supporters/3.jpeg' alt="Supporter business 3">                                                        
-														<img src='assets/supporters/4.png' alt="Supporter business 4">
-                                                </div>
-                                        </div>
-                                </div>
-                        </div>
-                </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support — The Keep Going Club</title>
 
-					<section>
-						<div class="section-header">
-							<h1>Want to volunteer?</h1>
-							</div>
-							<div class="section-content">
-								<p>
-								Volunteers help us run events, welcome people, bring creative ideas, and keep the vibes friendly.
-								No experience needed—just kindness, enthusiasm, and maybe the ability to locate a pen when someone inevitably asks for one.
-								</p>
-							</div>
-						</section>
-						
-					<section>
-						<div class="section-header">
-							<h1>Call to Action!</h1>
-							</div>
-							<div class="section-content">
-								<p>
-								<strong>Are you a business?</strong><br>
-								Partner with us and help Nottingham keep going!<br>
-								Drop us a message to chat sponsorships, collaborations, or how many biscuits it takes to run a mental-health event. (Spoiler: lots.)<br>
-								<a href='https://www.instagram.com/thekeepgoingclub_'>Chat to us here!</a>
-								</p>
-								<br>
-								<p>
-								<strong>Want to volunteer?</strong><br>
-								If you’re friendly, helpful, or simply good at turning up with snacks, we’d love to have you.<br>
-								<a href='https://www.instagram.com/thekeepgoingclub_'>Join the team!</a>
-								</p>
-							</div>
-</section>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-</main>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-<footer>
-&copy; The Keep Going Club 2025
-</footer>
-<script src="assets/js/supporter-carousel.js"></script>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html#top" aria-label="The Keep Going Club home">
+        <img class="brand__logo" src="/assets/cloud.png" alt="The Keep Going Club logo" />
+        <span>The Keep Going Club</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html#about-us">Home</a>
+        <a class="btn" href="about.html">About</a>
+        <a class="btn" href="support.html">Support</a>
+		<a class="nav__icon" href="https://www.instagram.com/thekeepgoingclub_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+		  <svg class="icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+			<path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
+			<path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8   c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
+			<path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8   c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
+		  </svg>
+		</a>
+      </nav>
+
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="drawer" id="mobile-drawer" role="menu" aria-label="Mobile navigation">
+      <a role="menuitem" href="index.html#top">Home</a>
+      <a role="menuitem" href="about.html">About</a>
+      <a role="menuitem" href="support.html">Support</a>
+      <a class="btn btn-primary drawer__cta" href="https://www.instagram.com/thekeepgoingclub_" target="_blank" rel="noopener noreferrer"> Follow us on Instagram → </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <h1 class="page-title">Support</h1>
+      <p class="subtitle">
+        If you’re a business or a human with a big heart (and maybe snacks), we’d love to have you with us.
+      </p>
+
+      <section class="section">
+        <h2>How businesses can help</h2>
+        <p>We’re a grassroots mental-health charity in Nottingham, creating events and creative safe spaces to help people breathe, connect, and, well, keep going.
+We see people, not diagnoses. Every story matters, every experience is valid, and every person deserves compassion.</p>
+
+        <p><strong>Your business can support us by:</strong></p>
+        <ul>
+          <li>Sponsoring an event (help us afford tea, art supplies, and the occasional emergency biscuit run)</li>
+          <li>Donating goods or services</li>
+          <li>Hosting a fundraiser</li>
+          <li>Letting us borrow your space for workshops or wellbeing sessions</li>
+        </ul>
+
+        <p><strong>What you get in return:</strong></p>
+        <ul>
+          <li>Shoutouts on our socials</li>
+          <li>Your logo on our site</li>
+          <li>Public appreciation (the wholesome kind)</li>
+          <li>A warm fuzzy feeling inside</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Supporters</h2>
+        <p class="muted">A few of the lovely humans and businesses backing the mission.</p>
+
+		<div class="logo-carousel" aria-label="Supporter logos carousel">
+		  <div class="logo-track" id="supporter-track">
+			<img class="logo" src="assets/supporters/1.jpeg" alt="Premium Patios and Driveways" loading="lazy">
+			<img class="logo" src="assets/supporters/2.jpeg" alt="Joey Bakes" loading="lazy">
+			<img class="logo" src="assets/supporters/3.jpeg" alt="SELECT MEP" loading="lazy">
+			<img class="logo" src="assets/supporters/4.png" alt="MOAI Fitness" loading="lazy">
+		  </div>
+		</div>
+
+      </section>
+
+      <section class="section section--flat">
+        <h2>Get involved</h2>
+
+        <div class="cta-grid">
+          <div class="cta">
+            <h3>Are you a business?</h3>
+            <p>Partner with us and help Nottingham keep going! Drop us a message to chat sponsorships, collaborations, or how many biscuits it takes to run a mental-health event. (Spoiler: lots.)
+            </p>
+            <a class="link-pill" href="http://www.instagram.com/thekeepgoingclub_" target="_blank" rel="noopener noreferrer">
+              Message us on Instagram →
+            </a>
+          </div>
+
+          <div class="cta">
+            <h3>Want to volunteer?</h3>
+            <p>If you’re friendly, helpful, or simply good at turning up with snacks, we’d love to have you.
+            </p>
+            <a class="link-pill" href="http://www.instagram.com/thekeepgoingclub_" target="_blank" rel="noopener noreferrer">
+              Volunteer via Instagram →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> The Keep Going Club
+      </footer>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>

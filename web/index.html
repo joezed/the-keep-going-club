@@ -1,116 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Keep Going Club</title>
 
-          <title>The Keep Going Club | Mental Health Support Community UK</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
-          <meta name="description"
-                content="The Keep Going Club is a UK-based mental health support community helping people through quiet struggles. Founded in Nottingham and open to anyone who needs support." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-          <!-- Open Graph (Facebook / LinkedIn / WhatsApp etc.) -->
-          <meta property="og:type" content="website" />
-          <meta property="og:site_name" content="The Keep Going Club" />
-          <meta property="og:title" content="The Keep Going Club | Mental Health Support Community UK" />
-          <meta property="og:description" content="The Keep Going Club is a UK-based mental health support community helping people through quiet struggles. Founded in Nottingham and open to anyone who needs support." />
-          <meta property="og:url" content="https://www.thekeepgoingclub.co.uk/" />
-          <meta property="og:image" content="https://www.thekeepgoingclub.co.uk/assets/og-image.png" />
-          <meta property="og:image:alt" content="The Keep Going Club logo" />
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="index.html#top" aria-label="The Keep Going Club home">
+        <img class="brand__logo" src="/assets/cloud.png" alt="The Keep Going Club logo" />
+        <span>The Keep Going Club</span>
+      </a>
 
-          <!-- Twitter / X -->
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="The Keep Going Club | Mental Health Support Community UK" />
-          <meta name="twitter:description" content="The Keep Going Club is a UK-based mental health support community helping people through quiet struggles. Founded in Nottingham and open to anyone who needs support." />
-          <meta name="twitter:image" content="https://www.thekeepgoingclub.co.uk/assets/og-image.jpg" />
+      <!-- Desktop nav -->
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html#about-us">Who We Are</a>
+        <a href="index.html#mission">Our Mission</a>
+        <a href="index.html#join">Join</a>
+        <a href="index.html#volunteers">Volunteers</a>
+        <a class="btn" href="about.html">About</a>
+		<a class="btn" href="support.html">Support</a>
+		<!-- Instagram icon (desktop only) -->
+		<a class="nav__icon" href="https://www.instagram.com/thekeepgoingclub_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+		  <svg class="icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+			<path d="M22.3,8.4c-0.8,0-1.4,0.6-1.4,1.4c0,0.8,0.6,1.4,1.4,1.4c0.8,0,1.4-0.6,1.4-1.4C23.7,9,23.1,8.4,22.3,8.4z"/>
+			<path d="M16,10.2c-3.3,0-5.9,2.7-5.9,5.9s2.7,5.9,5.9,5.9s5.9-2.7,5.9-5.9S19.3,10.2,16,10.2z M16,19.9c-2.1,0-3.8-1.7-3.8-3.8   c0-2.1,1.7-3.8,3.8-3.8c2.1,0,3.8,1.7,3.8,3.8C19.8,18.2,18.1,19.9,16,19.9z"/>
+			<path d="M20.8,4h-9.5C7.2,4,4,7.2,4,11.2v9.5c0,4,3.2,7.2,7.2,7.2h9.5c4,0,7.2-3.2,7.2-7.2v-9.5C28,7.2,24.8,4,20.8,4z M25.7,20.8   c0,2.7-2.2,5-5,5h-9.5c-2.7,0-5-2.2-5-5v-9.5c0-2.7,2.2-5,5-5h9.5c2.7,0,5,2.2,5,5V20.8z"/>
+		  </svg>
+		</a>
+      </nav>
 
-          <!-- Local SEO / Organization schema -->
-          <script type="application/ld+json">
-          {
-            "@context": "https://schema.org",
-            "@type": "NonprofitOrganization",
-            "name": "The Keep Going Club",
-            "url": "https://www.thekeepgoingclub.co.uk/",
-            "logo": "https://www.thekeepgoingclub.co.uk/assets/cloud.png",
-            "description": "The Keep Going Club is a UK-based mental health support community helping people through quiet struggles. Founded in Nottingham and open to anyone who needs support.",
-            "foundingLocation": {
-              "@type": "Place",
-              "name": "Nottingham, England"
-            },
-            "areaServed": [
-              { "@type": "AdministrativeArea", "name": "Nottingham" },
-              { "@type": "Country", "name": "United Kingdom" }
-            ],
-            "sameAs": [
-              "https://www.instagram.com/thekeepgoingclub_",
-              "https://www.linkedin.com/company/the-keep-going-club"
-            ]
-          }
-          </script>
+      <!-- Mobile hamburger -->
+      <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-drawer">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
 
-          <link rel="stylesheet" href="style.css" />
-          <link rel="icon" href="/assets/cloud.png" sizes="32x32" />
-        </head>
+    <!-- Mobile drawer -->
+    <div class="drawer" id="mobile-drawer" role="menu" aria-label="Mobile navigation">
+      <a role="menuitem" href="index.html#about-us">&#8594; Who We Are</a>
+      <a role="menuitem" href="index.html#mission">&#8594; Our Mission</a>
+      <a role="menuitem" href="index.html#join">&#8594; Join</a>
+      <a role="menuitem" href="index.html#volunteers">&#8594; Volunteers</a>
+      <a role="menuitem" href="about.html">About</a>
+	  <a role="menuitem" href="support.html">Support</a>
+      <a class="btn btn-primary drawer__cta" href="https://www.instagram.com/thekeepgoingclub_" target="_blank" rel="noopener noreferrer"> Follow us on Instagram → </a>
+    </div>
+  </header>
 
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true"></div>
 
-		<body>
-			<header>
-				<div class="site-title">The Keep Going Club</div>
-				<div class="logo">
-					<a href='index.html'><img src="assets/cloud.png" alt="Logo"></a>
-					</div>
-				<div class="nav">
-					<a href ='about.html'>About</a>
-					<a href ='support.html'>Support</a>
-				</div>
-				</header>
-				
-				<main>
-					<section>
-						<div class="section-header">
-							<h1>So, who are we?</h1>
-							<img src="assets/chat.png" alt="Chat image">
-							</div>
-							<div class="section-content">
-								<p>
-Keep Going Club is a grassroots mental health movement for anyone carrying quiet struggles behind a brave face.
-Born in Nottingham and led by people with lived experience, we create warm, creative spaces where it feels safe to talk, to be real, and to be held by community — without judgement, labels, or pressure.
-                                </p>
-								<br>
-                                <p>
-We’re here for the humans behind the “I’m fine.”
-								</p>
-							</div>
-						</section>
-						
-						<section>
-							<div class="section-header">
-								<h2>Our Mission</h2>
-								<img src="assets/mission.png" alt="Chat image">
-								</div>
-							<div class="section-content">
-									<p>
-To make early mental health support human, simple, and accessible — offering connection and care long before crisis point.
-									</p>
-								</div>
-							</section>
-							
-							<section>
-								<div class="section-header">
-									<h1>Join us!</h1>
-									<img src="assets/phone.png" alt="Chat image">
-									</div>
-									<div class="section-content">
-										<p>
-We are most active on Instagram, so follow us there!                                       
-										</p>
-										<a href='http://www.instagram.com/thekeepgoingclub_'><img src='assets/instagram.png' style='max-width:200px'></a>
-									</div>
-								</section>
-							</main>
-							
-							<footer>
-&copy; The Keep Going Club 2025
-								</footer>
-							</body>
-						</html>
+    <div class="hero__content">
+      <span class="hero__spacer" aria-hidden="true"></span>
+
+      <div class="hero__text">
+        <h1>The Keep Going Club</h1>
+        <p class="lead">
+			Keep Going Club is a grassroots mental health charity, born in Nottingham and led by lived experience, creating warm, creative spaces without judgement, labels, or pressure.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn-primary" href="#about-us">Learn more</a>
+          <a class="btn" href="#join">Join us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sections -->
+  <main>
+    <div class="container">
+      <section class="section" id="about-us">
+        <h2>Who We Are</h2>
+        <p>
+Keep Going Club is a grassroots mental health movement for anyone carrying quiet struggles behind a brave face. Born in Nottingham and led by people with lived experience, we create warm, creative spaces where it feels safe to talk, to be real, and to be held by community - without judgement, labels, or pressure.
+        </p>
+
+        <p class="callout"><strong>We’re here for the humans behind the “I’m fine.”</strong></p>
+      </section>
+
+      <section class="section" id="mission">
+        <h2>Our Mission</h2>
+        <p><strong>To make early mental health support human, simple, and accessible</strong> - offering connection and care long before crisis point.</p>
+      </section>
+
+      <section class="section" id="join">
+        <h2>Join us</h2>
+        <p>We are most active on Instagram, so follow us there!</p>
+        <a class="link-pill" href="http://www.instagram.com/thekeepgoingclub_" target="_blank" rel="noopener noreferrer">
+          Visit Instagram →
+        </a>
+      </section>
+
+      <section class="section" id="volunteers">
+        <div class="section__head">
+          <h2>Volunteers</h2>
+          <p class="muted">Powered by community.</p>
+        </div>
+
+        <!-- JS will render cards here -->
+        <div id="volunteer-grid" class="vol-grid" aria-label="Volunteer cards"></div>
+
+        <!-- Optional fallback if JSON fails -->
+        <div id="volunteer-fallback" class="muted" style="display:none; margin-top:12px;">
+          Couldn’t load volunteers right now.
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> The Keep Going Club
+      </footer>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
