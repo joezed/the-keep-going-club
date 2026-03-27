@@ -647,6 +647,24 @@ section[id]{ scroll-margin-top: 96px; }
   background-position: center;
 }
 
+.split__image--placeholder{
+  background:
+    linear-gradient(180deg, rgba(49,159,165,.20), rgba(12,79,94,.32));
+  position: relative;
+}
+
+.split__image--placeholder::after{
+  content: "Image placeholder";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(254,254,253,.92);
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(20px, 3vw, 30px);
+  letter-spacing: .3px;
+}
+
 .split__text{
   border-radius: 18px;
   border: 1px solid var(--stroke);
